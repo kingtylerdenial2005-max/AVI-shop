@@ -1,6 +1,6 @@
 FROM php:8.2-cli
 
-# Install packages + MySQL PDO driver
+# Install system dependencies + MySQL PDO driver
 RUN apt-get update && apt-get install -y \
     git \
     unzip \
@@ -9,24 +9,31 @@ RUN apt-get update && apt-get install -y \
     zip \
  && docker-php-ext-install zip pdo pdo_mysql
 
-# Composer
+# Install Composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 WORKDIR /app
 
-# Copy composer files first
+# Copy dependency files first for better caching
 COPY composer.json composer.lock ./
 
 # Install dependencies
 RUN composer install \
- --no-dev \
- --optimize-autoloader \
- --no-scripts \
- --ignore-platform-reqs
+    --no-dev \
+    --optimize-autoloader \
+    --no-scripts \
+    --ignore-platform-reqs
 
-# Copy project files
+# Copy the rest of the application
 COPY . .
+
+# Set up storage and database permissions
+RUN mkdir -p storage/framework/{sessions,views,cache} storage/logs database \
+    && touch database/database.sqlite \
+    && chmod -R 777 storage bootstrap/cache database \
+    && chmod +x start.sh
 
 EXPOSE 10000
 
-CMD php artisan serve --host=0.0.0.0 --port=$PORT
+# Use the startup script
+CMD ["./start.sh"]
