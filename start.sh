@@ -26,4 +26,4 @@ php artisan view:cache
 
 # Start the application
 echo "Starting application..."
-php artisan serve --host=0.0.0.0 --port=$PORT
+php -S 0.0.0.0:$PORT -t public
