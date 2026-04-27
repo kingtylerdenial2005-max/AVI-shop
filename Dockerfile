@@ -1,27 +1,30 @@
 FROM php:8.2-cli
 
-# Install system dependencies
 RUN apt-get update && apt-get install -y \
     git \
     unzip \
     curl \
     libzip-dev \
     zip \
-    && docker-php-ext-install zip
+ && docker-php-ext-install zip
 
-# Install Composer
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
-# App folder
 WORKDIR /app
 
-# Copy project files
-COPY . .
+# Copy composer files first
+COPY composer.json composer.lock ./
 
-# Install Laravel dependencies (skip artisan scripts during build)
-RUN composer install --no-dev --optimize-autoloader --no-scripts
+# Install packages without running artisan scripts
+RUN composer install \
+ --no-dev \
+ --optimize-autoloader \
+ --no-scripts \
+ --ignore-platform-reqs
+
+# Copy rest of project
+COPY . .
 
 EXPOSE 10000
 
-# Start Laravel
 CMD php artisan serve --host=0.0.0.0 --port=$PORT
