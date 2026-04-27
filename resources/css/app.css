@@ -1,0 +1,16 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Inter', 'Outfit', ui-sans-serif, system-ui, sans-serif;
+    --font-serif: 'Playfair Display', serif;
+    
+    --color-premium-gold: #c5a028;
+    --color-premium-dark: #4a2c5e;
+    --color-premium-light: #f8f4ff;
+    --color-premium-accent: #c5a028;
+}
