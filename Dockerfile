@@ -8,7 +8,12 @@ RUN apt-get update && apt-get install -y \
     libzip-dev \
     zip \
     libpq-dev \
+    gnupg \
  && docker-php-ext-install zip pdo pdo_mysql pdo_pgsql
+
+# Install Node.js (for Vite assets)
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
+    && apt-get install -y nodejs
 
 # Install Composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
@@ -27,6 +32,9 @@ RUN composer install \
 
 # Copy the rest of the application
 COPY . .
+
+# Build assets
+RUN npm install && npm run build
 
 # Set up storage and database permissions
 RUN mkdir -p storage/framework/{sessions,views,cache} storage/logs database \
