@@ -34,7 +34,7 @@ RUN composer install \
 COPY . .
 
 # Build assets
-RUN npm install && npm run build
+RUN npm install && export APP_ENV=production && npm run build
 
 # Set up storage and database permissions
 RUN mkdir -p storage/framework/{sessions,views,cache} storage/logs database \

@@ -18,6 +18,12 @@ php artisan migrate --force
 echo "Checking if database needs seeding..."
 php artisan tinker --execute="if(App\Models\Product::count() === 0) { Artisan::call('db:seed', ['--force' => true]); echo 'Database seeded'; } else { echo 'Database already has data'; }"
 
+# Clear cache for production
+echo "Clearing cache..."
+php artisan config:clear
+php artisan route:clear
+php artisan view:clear
+
 # Start the application
 echo "Starting application..."
 php artisan serve --host=0.0.0.0 --port=$PORT
