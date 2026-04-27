@@ -18,11 +18,11 @@ php artisan migrate --force
 echo "Checking if database needs seeding..."
 php artisan tinker --execute="if(App\Models\Product::count() === 0) { Artisan::call('db:seed', ['--force' => true]); echo 'Database seeded'; } else { echo 'Database already has data'; }"
 
-# Clear cache for production
-echo "Clearing cache..."
-php artisan config:clear
-php artisan route:clear
-php artisan view:clear
+# Clear cache and optimize for production
+echo "Optimizing for production..."
+php artisan config:cache
+php artisan route:cache
+php artisan view:cache
 
 # Start the application
 echo "Starting application..."
