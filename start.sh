@@ -14,6 +14,10 @@ fi
 echo "Running migrations..."
 php artisan migrate --force
 
+# Create storage directory and link
+mkdir -p storage/app/public/products
+php artisan storage:link --force
+
 # Seed database if it's empty
 echo "Checking if database needs seeding..."
 php artisan tinker --execute="if(App\Models\Product::count() === 0) { Artisan::call('db:seed', ['--force' => true]); echo 'Database seeded'; } else { echo 'Database already has data'; }"
@@ -23,6 +27,9 @@ echo "Optimizing for production..."
 php artisan config:cache
 php artisan route:cache
 php artisan view:cache
+
+# Set permissions (Render specific)
+chmod -R 777 storage bootstrap/cache
 
 # Start the application
 echo "Starting application..."

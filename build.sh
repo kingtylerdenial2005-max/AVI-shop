@@ -10,3 +10,6 @@ npm run build
 
 # Run database migrations
 php artisan migrate --force
+
+# Create storage link
+php artisan storage:link --force
