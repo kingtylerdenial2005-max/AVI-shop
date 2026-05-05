@@ -17,7 +17,8 @@
     @endif
 
     <div class="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden">
-        <table class="w-full text-left">
+        <div class="overflow-x-auto">
+            <table class="w-full text-left min-w-[800px]">
             <thead>
                 <tr class="bg-gray-50 border-b border-gray-100">
                     <th class="px-8 py-5 text-xs font-bold uppercase tracking-widest text-gray-500">Nighty</th>
@@ -72,7 +73,8 @@
                 </tr>
                 @endforeach
             </tbody>
-        </table>
+            </table>
+        </div>
     </div>
 </div>
 @endsection

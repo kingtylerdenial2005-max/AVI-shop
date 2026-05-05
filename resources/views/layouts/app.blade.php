@@ -130,7 +130,7 @@
             </div>
             <div>
                 <h4 class="font-bold mb-6">Contact</h4>
-                <p class="text-sm text-gray-400 mb-4">No. 123, Fashion Street, Chennai, Tamil Nadu</p>
+                <p class="text-sm text-gray-400 mb-4">kazhugumalai road, Infront of gov hr sec school, Thiruvengadam</p>
                 <p class="text-sm text-gray-400 mb-4">Phone: +91 73731 22826</p>
                 <div class="flex space-x-4 mt-6">
                     <a href="#" class="text-gray-400 hover:text-premium-gold transition-colors">
