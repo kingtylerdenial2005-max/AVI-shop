@@ -33,7 +33,7 @@
                 <!-- Logo -->
                 <div class="flex-shrink-0">
                     <a href="/" class="flex items-center">
-                        <img src="{{ asset('images/image_1777380181903757.png') }}"
+                        <img src="{{ asset('images\logo_3-removebg-preview.png') }}"
                             class="h-16 w-auto bg-white rounded-lg p-1" style="height: 64px; width: auto;"
                             alt="AVI Tailoring">
                     </a>
