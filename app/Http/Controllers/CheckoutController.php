@@ -17,7 +17,7 @@ class CheckoutController extends Controller
         foreach ($cart as $item) {
             $subtotal += $item['price'] * $item['quantity'];
         }
-        $shipping = $subtotal > 1999 ? 0 : 99;
+        $shipping = 50;
         $total = $subtotal + $shipping;
 
         return view('checkout', compact('cart', 'subtotal', 'shipping', 'total'));
@@ -41,7 +41,7 @@ class CheckoutController extends Controller
         foreach ($cart as $item) {
             $subtotal += $item['price'] * $item['quantity'];
         }
-        $shipping = $subtotal > 1999 ? 0 : 99;
+        $shipping = 50;
         $total = $subtotal + $shipping;
 
         // 3. Create Order

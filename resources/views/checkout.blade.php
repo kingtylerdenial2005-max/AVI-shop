@@ -108,7 +108,7 @@
                     </div>
                     <div class="flex justify-between text-gray-500 text-sm">
                         <span>Shipping Fee</span>
-                        <span class="{{ $shipping == 0 ? 'text-green-600 font-bold' : '' }}">{{ $shipping == 0 ? 'FREE' : '₹' . $shipping }}</span>
+                        <span>₹{{ $shipping }}</span>
                     </div>
                     <div class="flex justify-between items-center pt-4 border-t border-gray-100">
                         <span class="text-xl font-serif font-bold text-premium-dark">Total Amount</span>

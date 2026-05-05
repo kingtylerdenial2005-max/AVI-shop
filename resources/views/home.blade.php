@@ -85,8 +85,7 @@
                                                 class="text-premium-dark font-bold text-base">₹{{ number_format($product->price, 0) }}</span>
                                         @endif
                                     </div>
-                                    <p class="text-[10px] text-green-600 font-bold mt-1 uppercase tracking-tighter">Free
-                                        Delivery</p>
+                                    <p class="text-[10px] text-gray-500 font-bold mt-1 uppercase tracking-tighter">Shipping: ₹50</p>
                                 </div>
                             </div>
                         </a>
