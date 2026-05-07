@@ -126,7 +126,7 @@ class CheckoutController extends Controller
         // 7. UPI Intent Link
         $upiLink = null;
         if ($request->payment_method === 'UPI') {
-            $vpa = "9361699627@okicici"; 
+            $vpa = "8466434418@upi"; 
             $upiLink = "upi://pay?pa={$vpa}&pn=AVI%20Nighties&am={$total}&cu=INR";
         }
 

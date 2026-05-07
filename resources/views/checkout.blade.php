@@ -67,12 +67,13 @@
 
                     <!-- UPI QR Section -->
                     <div x-show="payment === 'UPI'" x-cloak class="p-6 bg-white border-2 border-premium-gold rounded-3xl text-center mb-8 animate-fade-in">
-                        <p class="text-xs font-bold text-premium-gold uppercase tracking-widest mb-4">Scan QR to Pay ₹{{ number_format($total, 0) }}</p>
+                        <p class="text-sm font-bold text-premium-dark mb-2">GPay / PhonePe Number: <span class="text-premium-gold">8466434418</span></p>
+                        <p class="text-xs font-bold text-gray-500 mb-4">கீழே உள்ள QR குறியீட்டை ஸ்கேன் செய்து அல்லது மேற்கண்ட எண்ணிற்கு பணம் செலுத்தவும்.</p>
                         <div class="w-48 h-48 bg-gray-100 mx-auto rounded-2xl flex items-center justify-center mb-4 border-2 border-gray-50 relative overflow-hidden">
-                            <!-- Placeholder QR -->
-                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=9361699627@okicici&pn=AVI%20Nighties&am={{ $total }}&cu=INR" class="w-full h-full p-4" alt="UPI QR">
+                            <!-- QR Code -->
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=8466434418@upi&pn=AVI%20Nighties&am={{ $total }}&cu=INR" class="w-full h-full p-4" alt="UPI QR">
                         </div>
-                        <p class="text-[10px] text-gray-400 font-medium">After payment, click "Place Order" below</p>
+                        <p class="text-[10px] text-gray-400 font-medium">பணம் செலுத்திய பின், கீழே உள்ள "Place Order" பட்டனை அழுத்தவும்</p>
                     </div>
                 </div>
 
